@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
+// COMPONENTES
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { PropertyDetailsComponent } from './components/property-details/property-details.component';
@@ -18,7 +20,8 @@ import { PropertyFormComponent } from './components/property-form/property-form.
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

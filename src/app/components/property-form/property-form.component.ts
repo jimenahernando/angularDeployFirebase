@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { PropertiesService } from 'src/app/services/properties.service';
 
 @Component({
   selector: 'app-property-form',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PropertyFormComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private propertiesService: PropertiesService,
+    private router: Router) { }
 
   ngOnInit(): void {
   }
 
+  onSubmit($event: any){
+    const message = this.propertiesService.createProperty($event.value);
+    if (message === 'success'){
+      this.router.navigate(['/home']);
+    }
+  }
 }

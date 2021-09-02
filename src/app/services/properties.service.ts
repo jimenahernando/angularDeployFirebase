@@ -61,10 +61,19 @@ export class PropertiesService {
   }
 
   getAll() : Property[]{
+    console.log(this.arrProperties)
     return this.arrProperties;
   }
 
   getById(id: number) : Property | undefined{
     return this.arrProperties.find(property => property.id === id);
+  }
+
+  createProperty(pProperty: Property) : string{
+    pProperty.id = this.arrProperties.length + 1;
+    pProperty.disponibilidad = true;
+    
+    this.arrProperties.push(pProperty);
+    return 'success';
   }
 }

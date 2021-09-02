@@ -11,4 +11,19 @@
 
 //Todo esto o vamos a ahcer contra un array del servicio, cuando montemos Firebase sustituiremos als funciones de array del servicio por la peticion a Firebase
 
-1. TArea crear el servicio, interface y generar rutas segunlo explicado
+1. Tarea crear el servicio, interface y generar rutas segunlo explicado
+2. Crear los componentes para asignar a las rutas especificas
+
+- siguiente tarea
+
+1. En el servicio de casas crear un metodo que me devuelva todas las casas
+2. Consumirlo dentro del componente home y pintar cada casa con una card de bootstrap en dicho componente.
+3. Crear un boton de ver detalle que link a la vista de detalle de cada casa
+4. Las casas que esten disponibles tendran un borde verde y las no disponibles uno rojo
+5. Crear la vista detalle y cargar los datos del inmueble.
+
+- siguiente tarea
+
+1. En la vista detalle dejar el espacio asignado para visualizar el mapa
+2. Crear un mneu de navegacion transversal para ir a lista de inmuebles y cargar el formulario de registro de un inmueble
+3. Crear un formulario de tipo template para añadir a traves un elemento al array
