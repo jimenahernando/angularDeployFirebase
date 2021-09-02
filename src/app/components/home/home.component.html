@@ -1,1 +1,7 @@
-<p>home works!</p>
+<div class="container mt-5">
+    <div class="row g-4">
+        <article class="col-12 col-md-6 col-lg-4" *ngFor="let property of arrProperties">
+            <app-property-card [property]="property"></app-property-card>
+        </article>
+    </div>
+</div>
