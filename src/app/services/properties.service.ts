@@ -17,7 +17,7 @@ export class PropertiesService {
         numeroHabitaciones: 3,
         propietario: "Sacadeishon",
         disponibilidad: true,
-        foto: "",
+        foto: "../../assets/images/ramblaBadal100.JPG",
         latitud: 41.37043786807235, 
         longitud: 2.1328624691327334
       },
@@ -29,7 +29,7 @@ export class PropertiesService {
         numeroHabitaciones: 4,
         propietario: "EL sin cerebro",
         disponibilidad: true,
-        foto: "",
+        foto: "../../assets/images/ViolantDeHongria143.JPG",
         latitud: 41.38040788712708,
       longitud: 2.134396146471098
       },
@@ -41,22 +41,30 @@ export class PropertiesService {
         numeroHabitaciones: 3,
         propietario: "La familia chiflada",
         disponibilidad: true,
-        foto: "",
+        foto: "../../assets/images/valencia80.JPG",
         latitud: 41.38204170176441, 
         longitud: 2.1493760306975878
       },
       {
         id: 4,
-        titulo: "Gran casona colonial",
+        titulo: "Gran Casona Colonial",
         direccion: "Cami del Verns 2, 08017" ,
         ciudad: "Barcelona",
         numeroHabitaciones: 4,
         propietario: "Violaine",
         disponibilidad: false,
-        foto: "",
+        foto: "../../assets/images/camiDelVerns2.JPG",
         latitud: 41.42613176030321,
         longitud: 2.0891791827090644
       },
     ];
+  }
+
+  getAll() : Property[]{
+    return this.arrProperties;
+  }
+
+  getById(id: number) : Property | undefined{
+    return this.arrProperties.find(property => property.id === id);
   }
 }
