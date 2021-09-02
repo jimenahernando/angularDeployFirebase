@@ -1,1 +1,12 @@
-<p>property-card works!</p>
+<div class="card" [ngClass]="{ 'border border-danger': property?.disponibilidad === false, 'border border-success': property?.disponibilidad === true }">
+    <figure class="contenedor-img">
+        <!-- <img [src]="property?.foto" class="card-img-top img-fluid" [alt]="property?.titulo"> -->
+        <div class="image" [ngStyle]="{'background-image': 'url(' + property?.foto + ')'}"></div>
+    </figure> 
+    <div class="card-body">
+        <h5 class="card-title">{{property?.titulo}}</h5>
+        <p class="card-text">{{property?.direccion}} - {{property?.ciudad}}</p>
+        <p class="card-text"><small class="text-muted">{{property?.disponibilidad ? 'Disponible' : 'No Disponible' }}</small></p>
+        <a href="#" class="btn btn-outline-secondary" [routerLink]="['/details', property?.id]">Ver mas</a>
+    </div>
+</div>
