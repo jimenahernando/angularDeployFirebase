@@ -1,1 +1,15 @@
-<p>property-details works!</p>
+<div class="card mb-3">
+    <img [src]="property?.foto" class="card-img-top img-fluid" [alt]="property?.titulo">
+    <div class="card-body">
+        <h5 class="card-title">{{property?.titulo}}</h5>
+        <ul class="list-unstyled">
+            <li>Direccion: {{property?.direccion}}</li>
+            <li>Ciudad: {{property?.ciudad}}</li>
+            <li>Lat/Long: {{property?.latitud}} - {{property?.longitud}}</li>
+            <li>Nro Habitaciones: {{property?.numeroHabitaciones}}</li>
+            <li>Propietarie: {{property?.propietario}}</li>
+        </ul>
+        <p class="card-text"><small class="text-muted">{{property?.disponibilidad ? 'Disponible' : 'No Disponible' }}</small></p>
+        <a href="#" class="btn btn-outline-secondary" [routerLink]="['/home']">Volver</a>
+    </div>
+</div>
