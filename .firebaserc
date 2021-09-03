@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "airbnb-563bd": {
+      "hosting": {
+        "deploy": [
+          "airbnb-563bd"
+        ]
+      }
+    }
+  }
+}
