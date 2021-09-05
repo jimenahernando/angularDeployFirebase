@@ -16,9 +16,10 @@ export class PropertyFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit($event: any){
-    const message = this.propertiesService.createProperty($event.value);
-    if (message === 'success'){
+  async onSubmit($event: any){
+    console.log($event.value);
+    const message = await this.propertiesService.createProperty($event.value);
+    if(message.success){
       this.router.navigate(['/home']);
     }
   }
