@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Property } from 'src/app/interfaces/property.interface';
+import { PropertiesService } from 'src/app/services/properties.service';
 
 @Component({
   selector: 'app-property-card',
@@ -9,9 +10,19 @@ import { Property } from 'src/app/interfaces/property.interface';
 export class PropertyCardComponent implements OnInit {
 
   @Input() property: Property | undefined;
-  constructor() { }
+
+  constructor(private propertiesService:PropertiesService) { }
 
   ngOnInit(): void {
   }
 
+  async eliminarPropiedad(pId: string | undefined){
+    if(pId){
+      console.log(pId);
+      const response = await this.propertiesService.delete(pId);
+      if(response.success){
+        alert('Propiedad borrada correctamente');
+      }
+    }
+  }
 }

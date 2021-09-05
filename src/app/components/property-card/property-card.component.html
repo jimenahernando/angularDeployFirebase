@@ -7,6 +7,10 @@
         <h5 class="card-title">{{property?.titulo}}</h5>
         <p class="card-text">{{property?.direccion}} - {{property?.ciudad}}</p>
         <p class="card-text"><small class="text-muted">{{property?.disponibilidad ? 'Disponible' : 'No Disponible' }}</small></p>
-        <a href="#" class="btn btn-outline-secondary" [routerLink]="['/details', property?.id]">Ver mas</a>
+        <div class="botonera">
+            <a class="btn btn-outline-secondary" [routerLink]="['/details', property?.id]">Ver mas</a>
+            <a class="btn btn-outline-success" [routerLink]="['/update', property?.id]">Actualizar</a>
+            <a class="btn btn-outline-danger" (click)="eliminarPropiedad(property?.id)" >Borrar</a>
+        </div>
     </div>
 </div>

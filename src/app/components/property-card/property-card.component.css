@@ -12,3 +12,9 @@
     /* transform: rotatez(3deg) scale(1.1); */
     transform: scale(1.1);
 }
+
+.botonera{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
