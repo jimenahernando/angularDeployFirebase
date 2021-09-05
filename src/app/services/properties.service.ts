@@ -3,6 +3,7 @@ import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/comp
 import { Observable } from 'rxjs';
 import { Property } from '../interfaces/property.interface';
 import { map } from 'rxjs/operators';
+import { pipeFromArray } from 'rxjs/internal/util/pipe';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,7 @@ export class PropertiesService {
   property: any;
   collection!: AngularFirestoreCollection<Property>;
 
-  constructor( private firestore : AngularFirestore) { 
+  constructor(private firestore: AngularFirestore) {
     // this.arrProperties = [
     //   {
     //     id: 1,
@@ -66,16 +67,16 @@ export class PropertiesService {
     this.collection = this.firestore.collection<Property>('properties');
   }
 
-  getAll() : Observable<any>{
+  getAll(): Observable<any> {
     // CON DATOS EN ARRAY
     // console.log(this.arrProperties);
     // return this.arrProperties;
 
     // CON OBSERVABLE
-   return this.firestore.collection('properties').valueChanges();
+    return this.firestore.collection('properties').valueChanges();
   }
-  
-  getById(pId: string): Observable<any>{
+
+  getById(pId: string): Observable<any> {
     // return this.arrProperties.find(property => property.id === id);
 
     // 1era forma
@@ -85,22 +86,33 @@ export class PropertiesService {
     // 2da forma
     return this.collection.doc(pId).valueChanges();
   }
-  
-  createProperty(pProperty: Property) : Promise<any>{
+
+  createProperty(pProperty: Property): Promise<any> {
     // pProperty.id = this.arrProperties.length + 1;
     // pProperty.disponibilidad = true;
-    
+
     // this.arrProperties.push(pProperty);
     // return 'success';
 
-    return new Promise((resolve, reject)=>{
+    return new Promise((resolve, reject) => {
       try {
         //resolve. recibo una house pero sin id, firestores tiene un metodo que me
         // permite crear un id y asignarselo a nuevo elemento (ID de documento)
         const id = this.firestore.createId();
         pProperty.id = id;
         const result = this.collection.doc(id).set(pProperty);
-        resolve({ success: 'ok'});
+        resolve({ success: 'ok' });
+      } catch (error) {
+        reject(error);
+      }
+    })
+  }
+
+  delete(pId: string) : Promise<any> {
+    return new Promise((resolve, reject) => {
+      try {
+        const result = this.collection.doc(pId).delete();
+        resolve({ success: 'ok' });
       } catch (error) {
         reject(error);
       }
