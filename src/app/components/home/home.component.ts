@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Property } from 'src/app/interfaces/property.interface';
 import { PropertiesService } from 'src/app/services/properties.service';
 
@@ -9,14 +10,14 @@ import { PropertiesService } from 'src/app/services/properties.service';
 })
 export class HomeComponent implements OnInit {
 
-  arrProperties: Property[];
+  arrProperties: Observable<any[]> = new Observable();
 
   constructor(private propertiesService: PropertiesService) {
-    this.arrProperties= [];
   }
 
-  ngOnInit(): void {
+  ngOnInit() : void{
     this.arrProperties = this.propertiesService.getAll(); 
+    // console.log(this.arrProperties);
   }
 
 }

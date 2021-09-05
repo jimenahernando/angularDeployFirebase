@@ -1,6 +1,8 @@
 <div class="container mt-5">
     <div class="row g-4">
-        <article class="col-12 col-md-6 col-lg-4" *ngFor="let property of arrProperties">
+        <article class="col-12 col-md-6 col-lg-4" *ngFor="let property of arrProperties | async">
+            <!-- Recurso que nos sirve para ver los datos que llegan -->
+            <!-- {{ property | json }} -->
             <app-property-card [property]="property"></app-property-card>
         </article>
     </div>
