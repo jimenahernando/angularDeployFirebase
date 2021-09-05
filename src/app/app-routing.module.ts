@@ -6,10 +6,11 @@ import { PropertyFormComponent } from './components/property-form/property-form.
 
 const routes: Routes = [
   {path: '', pathMatch: "full", redirectTo: "/home"},
-  {path: 'home', component: HomeComponent},
-  {path: 'details/:idProperty', component: PropertyDetailsComponent},
-  {path: 'newProperty', component: PropertyFormComponent},
-  {path: '**', component: HomeComponent},
+  {path: 'home', component: HomeComponent },
+  {path: 'details/:idProperty', component: PropertyDetailsComponent },
+  {path: 'update/:idProperty', component: PropertyFormComponent },
+  {path: 'newProperty', component: PropertyFormComponent },
+  {path: '**', component: HomeComponent },
 ];
 
 @NgModule({

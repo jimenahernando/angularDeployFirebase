@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { Property } from 'src/app/interfaces/property.interface';
 import { PropertiesService } from 'src/app/services/properties.service';
 
 @Component({
@@ -9,16 +11,33 @@ import { PropertiesService } from 'src/app/services/properties.service';
 })
 export class PropertyFormComponent implements OnInit {
 
+  propertyUpdated: any = {};
+  
   constructor(
     private propertiesService: PropertiesService,
-    private router: Router) { }
+    private router: Router,
+    private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.activatedRoute.params?.subscribe(params=> {
+      if(params.idProperty){
+        // si tienes parametros e sporque esta actualizando
+        const result = this.propertiesService.getById(params.idProperty);
+        result.subscribe(data => {
+          this.propertyUpdated = data;
+        });
+      }
+    })
   }
 
-  async onSubmit($event: any){
-    console.log($event.value);
-    const message = await this.propertiesService.createProperty($event.value);
+  async onSubmit(pForm: any){
+    const property = pForm.value;
+    let message: any;
+    if(this.propertyUpdated.id){
+      message = await this.propertiesService.createProperty(property, this.propertyUpdated.id);
+    }else{
+      message = await this.propertiesService.createProperty(property); 
+    }
     if(message.success){
       this.router.navigate(['/home']);
     }

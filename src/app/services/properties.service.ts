@@ -87,7 +87,7 @@ export class PropertiesService {
     return this.collection.doc(pId).valueChanges();
   }
 
-  createProperty(pProperty: Property): Promise<any> {
+  createProperty(pProperty: Property, pId:string =""): Promise<any> {
     // pProperty.id = this.arrProperties.length + 1;
     // pProperty.disponibilidad = true;
 
@@ -98,7 +98,7 @@ export class PropertiesService {
       try {
         //resolve. recibo una house pero sin id, firestores tiene un metodo que me
         // permite crear un id y asignarselo a nuevo elemento (ID de documento)
-        const id = this.firestore.createId();
+        const id = (pId === "") ? this.firestore.createId() : pId;
         pProperty.id = id;
         const result = this.collection.doc(id).set(pProperty);
         resolve({ success: 'ok' });

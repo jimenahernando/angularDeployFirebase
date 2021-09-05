@@ -1,38 +1,38 @@
 <div class="container mt-5">
     <form action="" #formulario="ngForm" (ngSubmit)="onSubmit(formulario)">
         <div class="mb-3">
-            <input type="text" class="form-control" id="titulo" placeholder="Titulo" ngModel name="titulo">
+            <input type="text" class="form-control" id="titulo" placeholder="Titulo" [(ngModel)]="propertyUpdated.titulo" name="titulo">
         </div>
         <div class="mb-3">
-            <input type="text" class="form-control" id="direccion" placeholder="Direccion" ngModel name="direccion">
+            <input type="text" class="form-control" id="direccion" placeholder="Direccion" [(ngModel)]="propertyUpdated.direccion" name="direccion">
         </div>
         <div class="mb-3">
-            <select ngModel name="ciudad" id="ciudad" class="form-select">
+            <select [(ngModel)]="propertyUpdated.ciudad" name="ciudad" id="ciudad" class="form-select">
                 <option value="" selected>Selecciona una ciudad</option>
-                <option value="madrid" selected>Madrid</option>
-                <option value="valencia" selected>Valencia</option>
-                <option value="granada" selected>Granada</option>
-                <option value="barcelona" selected>Barcelona</option>
-                <option value="coruña" selected>Coruña</option>
-                <option value="sevilla" selected>Sevilla</option>
-                <option value="valladolid" selected>Valladolid</option>
+                <option value="Madrid" selected>Madrid</option>
+                <option value="Valencia" selected>Valencia</option>
+                <option value="Granada" selected>Granada</option>
+                <option value="Barcelona" selected>Barcelona</option>
+                <option value="Coruña" selected>Coruña</option>
+                <option value="Sevilla" selected>Sevilla</option>
+                <option value="Valladolid" selected>Valladolid</option>
             </select>
         </div>
         <div class="mb-3">
-            <input type="number" class="form-control" id="numeroHabitaciones" placeholder="Nro de habitaciones" ngModel name="numeroHabitaciones">
+            <input type="number" class="form-control" id="numeroHabitaciones" placeholder="Nro de habitaciones" [(ngModel)]="propertyUpdated.numeroHabitaciones" name="numeroHabitaciones">
         </div>
         <div class="mb-3">
-            <input type="text" class="form-control" id="propietario" placeholder="Propietario" ngModel name="propietario">
+            <input type="text" class="form-control" id="propietario" placeholder="Propietario" [(ngModel)]="propertyUpdated.propietario" name="propietario">
         </div>
         <div class="mb-3">
-            <input type="text" class="form-control" id="foto" placeholder="Adjuntar url de Foto" ngModel name="foto">
+            <input type="text" class="form-control" id="foto" placeholder="Adjuntar url de Foto" [(ngModel)]="propertyUpdated.foto" name="foto">
         </div>
         <div class="row">
             <div class="col-6 mb-3">
-                <input type="number" class="form-control" id="latitud" placeholder="Latitud" ngModel name="latitud">
+                <input type="number" class="form-control" id="latitud" placeholder="Latitud" [(ngModel)]="propertyUpdated.latitud" name="latitud">
             </div>
             <div class="col-6 mb-3">
-                <input type="number" class="form-control" id="longitud" placeholder="Longitud" ngModel name="longitud">
+                <input type="number" class="form-control" id="longitud" placeholder="Longitud" [(ngModel)]="propertyUpdated.longitud" name="longitud">
             </div>
         </div>
         <button type="submit" class="btn btn-secondary">Enviar</button>
