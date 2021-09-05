@@ -17,9 +17,16 @@ export class PropertyDetailsComponent implements OnInit {
     private propertiesService:PropertiesService) { }
 
   ngOnInit(): void {
+    // 1era forma
+    // this.activatedRoute.params?.subscribe(async params => {
+    //   this.property = await this.propertiesService.getById(params.idProperty);
+    //   console.log(this.property);
+    // })
+
+    // 2da forma
     this.activatedRoute.params?.subscribe(params => {
-      const id= Number(params.idProperty);
-      this.property = this.propertiesService.getById(id);
+      const result = this.propertiesService.getById(params.idProperty);
+      result.subscribe(data => this.property = data);
     })
   }
 
