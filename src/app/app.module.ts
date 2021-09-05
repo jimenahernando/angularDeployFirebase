@@ -1,6 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+// Formulario Template
 import { FormsModule } from '@angular/forms';
+// Firebase
+import { AngularFireModule } from '@angular/fire/compat';
+import { environment } from '../environments/environment';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 import { AppRoutingModule } from './app-routing.module';
 // COMPONENTES
@@ -21,7 +26,9 @@ import { PropertyFormComponent } from './components/property-form/property-form.
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule  
   ],
   providers: [],
   bootstrap: [AppComponent]
