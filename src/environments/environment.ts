@@ -11,7 +11,10 @@ export const environment = {
     storageBucket: "airbnb-563bd.appspot.com",
     messagingSenderId: "940200629980",
     appId: "1:940200629980:web:0e9e84b9a0f44b8b604619",
-    measurementId: "G-EEZFDZ9WWN"}
+    measurementId: "G-EEZFDZ9WWN"},
+    googleMaps: {
+        apiKey: 'AIzaSyCMr3qBPBI5lVE4ErXpLvymreTdF5FUwhg'
+      }
 };
 
 /*
