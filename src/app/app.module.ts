@@ -14,6 +14,7 @@ import { HomeComponent } from './components/home/home.component';
 import { PropertyDetailsComponent } from './components/property-details/property-details.component';
 import { PropertyCardComponent } from './components/property-card/property-card.component';
 import { PropertyFormComponent } from './components/property-form/property-form.component';
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { PropertyFormComponent } from './components/property-form/property-form.
     AppRoutingModule,
     FormsModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFirestoreModule  
+    AngularFirestoreModule,
+    AgmCoreModule.forRoot(environment.googleMaps)
   ],
   providers: [],
   bootstrap: [AppComponent]

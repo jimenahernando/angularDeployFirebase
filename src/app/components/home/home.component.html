@@ -6,4 +6,23 @@
             <app-property-card [property]="property"></app-property-card>
         </article>
     </div>
+    <div class="row my-4">
+        <agm-map [latitude]="latitud" [longitude]="longitud" [zoom]="12" (mapRightClick)="botonDerechoPresionado($event)">
+            <!-- para posicionarme yo misma -->
+            <agm-marker [latitude]="latitud" [longitude]="longitud" [iconUrl]="$any({url: 'https://lh3.googleusercontent.com/proxy/5UNrrnpwNNxH_o0-bfPVO92MDRjEp4hHr0fh7wdiFyZG9pyRQ8ffsNXD7ataxAPHGRN-YWq-TM_7fYPwxuKuuJ5ne8cIJpUygsrTgGbEeSf_Yw0Wv1Egb97CUw_usYPYQlq36nJhyqUfDbGdC-44Ot9kD7zMmuU_K1jWVetyXpzW9eKRRD2mpDYH', scaledSize: { width: 40, height: 40}})"></agm-marker>
+            
+            <!-- lo dejamos como superficie iterable -->
+            <agm-marker [latitude]="property?.latitud" [longitude]="property?.longitud" *ngFor="let property of arrProperties | async" [agmFitBounds]="true">
+                <agm-info-window>
+                    <div class="d-flex flex-column">
+                        <h6 class="tituloMarker">{{property?.titulo}}</h6>
+                        <img class="thumb" [src]="property?.foto">
+                        <button class="btn btn-outline-secondary btn-sm my-1" [routerLink]="['/details', property?.id]">Ver detalle</button>
+                        <hr>
+                        <small class="my-1">Propietario: {{property?.propietario}}</small>
+                    </div>
+                </agm-info-window>
+            </agm-marker>
+        </agm-map>
+    </div>
 </div>
