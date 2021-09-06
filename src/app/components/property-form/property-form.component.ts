@@ -16,7 +16,10 @@ export class PropertyFormComponent implements OnInit {
   constructor(
     private propertiesService: PropertiesService,
     private router: Router,
-    private activatedRoute: ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute) {
+      // para que en el select no salga vacio, sino con value="" que indica seleccione una ciudad
+    this.propertyUpdated.ciudad = "";    
+  }
 
   ngOnInit(): void {
     this.activatedRoute.params?.subscribe(params=> {
